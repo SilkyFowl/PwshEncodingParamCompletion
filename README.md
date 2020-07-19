@@ -12,6 +12,13 @@ Powershell7.xはEncodingパラメータに指定可能なエンコードがと�
 
 ![CompletionID](/assets/CompletionID.png)
 
+## 導入
+
+```powershell
+git clone git@github.com:SilkyFowl/PwshEncodingParamCompletion.git
+Import-Module ./PwshEncodingParamCompletion/PwshEncodingParamCompletion.psm1
+```
+
 ## 使い方
 
 ```powershell
