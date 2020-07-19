@@ -1,0 +1,13 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <S>Add-Content</S>
+  <S>Export-Clixml</S>
+  <S>Export-Csv</S>
+  <S>Export-PSSession</S>
+  <S>Format-Hex</S>
+  <S>Get-Content</S>
+  <S>Import-Csv</S>
+  <S>Out-File</S>
+  <S>Select-String</S>
+  <S>Send-MailMessage</S>
+  <S>Set-Content</S>
+</Objs>
