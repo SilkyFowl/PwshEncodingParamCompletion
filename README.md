@@ -2,7 +2,7 @@
 
 Encodingパラメータを拡張するPowershellモジュールです。
 
-## これは何？
+## これは何
 
 Powershell7.xはEncodingパラメータに指定可能なエンコードがとても増えましたが、標準の補完入力には9種類しか出てきません。それを何とかするためのモジュールです。
 
@@ -16,20 +16,19 @@ Powershell7.xはEncodingパラメータに指定可能なエンコードがと�
 
 ```powershell
 git clone git@github.com:SilkyFowl/PwshEncodingParamCompletion.git
-Import-Module ./PwshEncodingParamCompletion/PwshEncodingParamCompletion.psm1
 ```
 
 ## 使い方
 
 ```powershell
-$env:PSModulePath += ";{0}" -f $Pwd.Path
+Import-Module <PwshEncodingParamCompletion.psm1のパス>
 Register-EncodingCompleter
 ```
 
-#### 全表示
+### 全表示
 
 ```powershell
-$env:PSModulePath += ";{0}" -f $Pwd.Path
+Import-Module <PwshEncodingParamCompletion.psm1のパス>
 Set-AllCodePages (Get-AllCodePages)
 Register-EncodingCompleter
 ```
