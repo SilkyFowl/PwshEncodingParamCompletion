@@ -1,11 +1,18 @@
 using namespace System.Management.Automation
 function New-CommandNameInfo {
+    <#
+    .SYNOPSIS
+        Encodingパラメータがあるコマンドレット名の配列を返します。
+    #>
     Get-Command -Type Cmdlet -ParameterName  Encoding | ForEach-Object name
 }
 
 
 function New-CodepageInfo {
-    # 既存のパラメータ
+    <#
+    .SYNOPSIS
+        MS Docから情報を取得して候補値の一覧を作成します。
+    #>
     $DefaultParams = @(
         @{
             Name        = 'ascii'
@@ -70,23 +77,34 @@ function New-CodepageInfo {
 }
 
 function Get-AllCodePages {
-        $AllCodePages
+    <#
+    .SYNOPSIS
+        モジュールフォルダに保存されてる候補値の一覧を返します。
+    #>
+    $AllCodePages
 }
 
 function Set-CodePages {
+    <#
+    .SYNOPSIS
+        表示される候補値の一覧を更新します。
+    #>
     param(
         [Parameter(Mandatory)]
         [psobject]
         $NewCodePages
     )
-    end{
+    end {
         $Script:Codepages = $NewCodePages
     }
 }
 
 
 Function Register-EncodingCompleter {
-
+    <#
+    .SYNOPSIS
+        既存コマンドレットのEncodingパラメータを拡張します。。
+    #>
     $hashArgs = @{
         CommandName   = $CommandName
         ParameterName = 'Encoding'
@@ -123,6 +141,6 @@ Function Register-EncodingCompleter {
 
 $CommandName = Import-Clixml $PSScriptRoot\CommandName.xml
 $AllCodePages = Import-Clixml $PSScriptRoot\Codepages.xml
-$CodePages = $AllCodePages | Where-Object {($_.DotnetFrameworkSupport) -or ($_.DisplayName -match 'Japan')}
+$CodePages = $AllCodePages | Where-Object { ($_.DotnetFrameworkSupport) -or ($_.DisplayName -match 'Japan') }
 
 Export-ModuleMember -Function *
